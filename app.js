@@ -1,14 +1,19 @@
 var userChoice = "";
 var computerChoice ="";
 var result = "";
+var userWins = 0;
+var computerWins = 0;
 
 function getInput(x) {
 	userChoice = x;
 	computerInput();
 	compare(userChoice, computerChoice);
+	winCount(result);
 	winner();
 	computerOutput();
 	userOutput();
+	displayUserWin();
+	displayComputerWin();
 }
 
 function computerInput() {
@@ -28,15 +33,35 @@ function compare(choice1, choice2) {
 		result = "Its a tie!";
 	}
 	else if(choice1 === "rock") {
-		result = (choice2 === 'paper') ? "paper beats rock, you lose!" : "rock beats paper, you win!";
+		result = (choice2 === 'paper') ? "You Lose!" : "You Win!";
 	}
 	else if(choice1 === "paper") {
-		result = (choice2 === 'rock') ? "paper beats rock, you win!" : "scissors beats paper, you lose!";
+		result = (choice2 === 'rock') ? "You Win!" : "You Lose!";
 	}
 	else if(choice1 === 'scissors') {
-		result = (choice2 === 'rock') ? "rock beats scissors, you lose!" : "scissors beat paper, you win!";
+		result = (choice2 === 'rock') ? "You Lose!" : "You Win!";
 	}
 	return result
+}
+
+function winCount(result) {
+	if(result === 'You Win!') {
+		userWins++
+	} else if(result === 'You Lose!') {
+		computerWins++
+	} else {
+		return;
+	}
+}
+
+function displayUserWin() {
+	var userWin = document.getElementById("user_win");
+	userWin.innerHTML = "Your wins: " + userWins;
+}
+
+function displayComputerWin() {
+	var computerWin = document.getElementById("computer_win");
+	computerWin.innerHTML = "Computer wins: " + computerWins;
 }
 
 function computerOutput() {

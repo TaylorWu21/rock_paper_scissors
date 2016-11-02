@@ -14,13 +14,20 @@
 		<h1>Rock Paper Scissors</h1>
 		<div class='jumbotron'>
 			<h2 id='output'></h2>
-			<!--<p>Display win/loss</p>-->
 		</div>
 		<img src='images/rock.jpg' onClick="getInput('rock');" />
 		<img src='images/paper.jpg' onClick="getInput('paper');" />
 		<img src='images/scissors.jpg' onClick="getInput('scissors');" />
-		<h3 id='computer_output'></h3>
-		<h3 id='user_output'></h3>
+		<div class='row'>
+			<div class='container col-md-6 col-lg-6 col-sm-12'>
+				<h3 id='computer_output'></h3>
+				<h3 id='user_output'></h3>
+			</div>
+			<div class='container col-md-6 col-lg-6 col-sm-12'>
+				<h3 id='user_win'></h3>
+				<h3 id='computer_win'></h3>
+			</div>
+		</div>
 	</body>
 	<script type="text/javascript" src='app.js'></script>
 </html>
